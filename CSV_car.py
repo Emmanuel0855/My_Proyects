@@ -1,46 +1,47 @@
-import pandas as pd 
-import numpy as np 
-import matplotlib.pyplot as plt 
-import seaborn as sns 
+#1. Importing Necessary Libraries:
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-# Cargar el dataset
-df = pd.read_csv('C:/Users/Zephyrus/Downloads/car_models(1).csv')
+#2. Loading and Exploring the Dataset:
+# Load the dataset with a specified encoding (e.g., ISO-8859-1)
+df = pd.read_csv(r'C:\Users\Zephyrus\Downloads\extended_car_models.csv', encoding='ISO-8859-1')
 
-# Información básica del dataset
-print(df.head())  
-print(df.tail())  
-print(df.info())  
-print(df.describe())  
+# Get basic information about the dataset
+print(df.head())  # Display the first few rows
+print(df.tail())  # Display the last few rows
+print(df.info())  # Get information about data types and missing values
+print(df.describe())  # Get summary statistics
 
-# Manejo de valores nulos
-print(df.isnull().sum())  
+#3. Handling Missing Values:
+# Check for missing values
+print(df.isnull().sum())  # Count missing values per column
 
-# Rellenar valores nulos en 'Modelo' con el valor más frecuente
-df['Modelo'].fillna(df['Modelo'].mode()[0], inplace=True)
+# Handle missing values in the 'Modelo' column
+df['Modelo'] = df['Modelo'].fillna(df['Modelo'].mode()[0])  # Fill with the most frequent value
 
-# O eliminar filas con valores nulos
-# df.dropna(inplace=True)
-
-# Transformación y limpieza de datos
+#4. Data Cleaning and Transformation:
+# Convert data types if necessary
 df['Modelo del Motor'] = df['Modelo del Motor'].astype('category')
+
+# Remove duplicates
 df.drop_duplicates(inplace=True)
-df['Promedio de precios (USD)'] = df['Precio Actual de Mercado (USD)'] / df['Precio de Lanzamiento (USD)']
 
-# Análisis exploratorio de datos (EDA)
-sns.histplot(df['Precio Actual de Mercado (USD)'])  
-plt.show()
+# Create new features or transform existing ones
+# Ensure 'column1' and 'column2' exist before using them
+if 'column1' in df.columns and 'column2' in df.columns:
+    df['new_feature'] = df['column1'] / df['column2']
+else:
+    print("One or both columns 'column1' and 'column2' do not exist in the DataFrame.")
 
-sns.boxplot(x=df['Precio de Lanzamiento (USD)'])  
-plt.show()
+#5. Exploratory Data Analysis (EDA):
+# Univariate analysis
+sns.histplot(df['Cilindrada (L)'])  # Histogram
+sns.boxplot(x=df['Cilindrada (L)'])  # Box plot
+sns.countplot(x='categorical_column', data=df)  # Count plot
 
-sns.countplot(x='Categoría', data=df)  
-plt.show()
-
-sns.scatterplot(x='Año de Lanzamiento', y='Precio Actual de Mercado (USD)', data=df)  
-plt.show()
-
-sns.barplot(x='Categoría', y='Cilindros', data=df)  
-plt.show()
-
-sns.heatmap(df.corr(numeric_only=True))  
-plt.show()
+# Bivariate analysis
+sns.scatterplot(x='column1', y='column2', data=df)  # Scatter plot
+sns.barplot(x='categorical_column', y='numerical_column', data=df)  # Bar plot
+sns.heatmap(df.corr())  # Correlation matrix

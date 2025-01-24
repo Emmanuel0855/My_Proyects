@@ -1,0 +1,1 @@
+query parent(susan, X)

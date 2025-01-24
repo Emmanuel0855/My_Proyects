@@ -1,0 +1,11 @@
+Class Queue:
+    def __init__(self):
+        self.elemnts = []
+        
+    def add(self, dato)
+        self.elements.insert(0, dato)
+    
+    def remove(self):
+        return self.elemnts.pop()
+    
+    def peek(slef)
