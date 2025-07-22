@@ -1,0 +1,15 @@
+[2025-07-22T15:27:15.147+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.transform_car_models manual__2025-07-22T15:27:10.649239+00:00 [queued]>
+[2025-07-22T15:27:15.156+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.transform_car_models manual__2025-07-22T15:27:10.649239+00:00 [queued]>
+[2025-07-22T15:27:15.157+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-22T15:27:15.169+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_car_models> on 2025-07-22 15:27:10.649239+00:00
+[2025-07-22T15:27:15.174+0000] {standard_task_runner.py:60} INFO - Started process 199 to run task
+[2025-07-22T15:27:15.177+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'transform_car_models', 'manual__2025-07-22T15:27:10.649239+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmp4mrynjbf']
+[2025-07-22T15:27:15.179+0000] {standard_task_runner.py:88} INFO - Job 30: Subtask transform_car_models
+[2025-07-22T15:27:15.220+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.transform_car_models manual__2025-07-22T15:27:10.649239+00:00 [running]> on host 611e00b9d5de
+[2025-07-22T15:27:15.290+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='transform_car_models' AIRFLOW_CTX_EXECUTION_DATE='2025-07-22T15:27:10.649239+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-22T15:27:10.649239+00:00'
+[2025-07-22T15:27:15.318+0000] {pipeline.py:36} INFO - Successfully connected to MongoDB at mongodb:27017
+[2025-07-22T15:27:15.321+0000] {pipeline.py:323} INFO - [Transform/Load] Processed and loaded 0 car models.
+[2025-07-22T15:27:15.341+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-22T15:27:15.353+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=transform_car_models, execution_date=20250722T152710, start_date=20250722T152715, end_date=20250722T152715
+[2025-07-22T15:27:15.389+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-22T15:27:15.410+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

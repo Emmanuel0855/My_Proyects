@@ -1,0 +1,16 @@
+[2025-07-20T16:50:21.396+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.transform_currency_stocks manual__2025-07-20T16:50:15.226218+00:00 [queued]>
+[2025-07-20T16:50:21.404+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.transform_currency_stocks manual__2025-07-20T16:50:15.226218+00:00 [queued]>
+[2025-07-20T16:50:21.405+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-20T16:50:21.416+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_currency_stocks> on 2025-07-20 16:50:15.226218+00:00
+[2025-07-20T16:50:21.422+0000] {standard_task_runner.py:60} INFO - Started process 208 to run task
+[2025-07-20T16:50:21.425+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'transform_currency_stocks', 'manual__2025-07-20T16:50:15.226218+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/app.py', '--cfg-path', '/tmp/tmp7ofaummk']
+[2025-07-20T16:50:21.427+0000] {standard_task_runner.py:88} INFO - Job 16: Subtask transform_currency_stocks
+[2025-07-20T16:50:21.467+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.transform_currency_stocks manual__2025-07-20T16:50:15.226218+00:00 [running]> on host 01c7493795c8
+[2025-07-20T16:50:21.539+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='transform_currency_stocks' AIRFLOW_CTX_EXECUTION_DATE='2025-07-20T16:50:15.226218+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-20T16:50:15.226218+00:00'
+[2025-07-20T16:50:21.554+0000] {app.py:33} INFO - Successfully connected to MongoDB at mongodb:27017
+[2025-07-20T16:50:21.557+0000] {app.py:276} INFO - [Transform/Load] Processed and loaded currency data.
+[2025-07-20T16:50:21.589+0000] {app.py:289} INFO - [Transform/Load] Processed and loaded 500 stock records.
+[2025-07-20T16:50:21.590+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-20T16:50:21.601+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=transform_currency_stocks, execution_date=20250720T165015, start_date=20250720T165021, end_date=20250720T165021
+[2025-07-20T16:50:21.637+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-20T16:50:21.652+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

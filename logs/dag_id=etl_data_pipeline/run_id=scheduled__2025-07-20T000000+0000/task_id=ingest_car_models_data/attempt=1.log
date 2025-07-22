@@ -1,0 +1,14 @@
+[2025-07-21T13:18:28.336+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_car_models_data scheduled__2025-07-20T00:00:00+00:00 [queued]>
+[2025-07-21T13:18:28.346+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_car_models_data scheduled__2025-07-20T00:00:00+00:00 [queued]>
+[2025-07-21T13:18:28.346+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-21T13:18:28.359+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_car_models_data> on 2025-07-20 00:00:00+00:00
+[2025-07-21T13:18:28.365+0000] {standard_task_runner.py:60} INFO - Started process 197 to run task
+[2025-07-21T13:18:28.368+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'ingest_car_models_data', 'scheduled__2025-07-20T00:00:00+00:00', '--job-id', '74', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpdkpf59fk']
+[2025-07-21T13:18:28.370+0000] {standard_task_runner.py:88} INFO - Job 74: Subtask ingest_car_models_data
+[2025-07-21T13:18:28.419+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.ingest_car_models_data scheduled__2025-07-20T00:00:00+00:00 [running]> on host 32eccd868063
+[2025-07-21T13:18:28.500+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='ingest_car_models_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-20T00:00:00+00:00'
+[2025-07-21T13:18:28.512+0000] {pipeline.py:129} WARNING - No make IDs found via XCom for car models ingestion. Skipping.
+[2025-07-21T13:18:28.525+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-21T13:18:28.534+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=ingest_car_models_data, execution_date=20250720T000000, start_date=20250721T131828, end_date=20250721T131828
+[2025-07-21T13:18:28.581+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-21T13:18:28.603+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

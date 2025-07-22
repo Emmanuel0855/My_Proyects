@@ -1,0 +1,80 @@
+[2025-07-20T16:17:11.496+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T16:17:11.508+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T16:17:11.508+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-20T16:17:11.523+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_currency_data> on 2025-07-19 00:00:00+00:00
+[2025-07-20T16:17:11.530+0000] {standard_task_runner.py:60} INFO - Started process 191 to run task
+[2025-07-20T16:17:11.534+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'ingest_currency_data', 'scheduled__2025-07-19T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/app.py', '--cfg-path', '/tmp/tmphu8knkq6']
+[2025-07-20T16:17:11.537+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask ingest_currency_data
+[2025-07-20T16:17:11.594+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [running]> on host d4d98b964d15
+[2025-07-20T16:17:11.678+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='ingest_currency_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-19T00:00:00+00:00'
+[2025-07-20T16:17:11.680+0000] {app.py:42} INFO - Extracting data from: https://api.exchangerate-api.com/v4/latest/USD
+[2025-07-20T16:17:12.209+0000] {app.py:33} INFO - Successfully connected to MongoDB at mongodb:27017
+[2025-07-20T16:17:12.226+0000] {app.py:69} INFO - [Ingest] Ingested currency data. Rates for USD: 163 currencies.
+[2025-07-20T16:17:12.240+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-20T16:17:12.251+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=ingest_currency_data, execution_date=20250719T000000, start_date=20250720T161711, end_date=20250720T161712
+[2025-07-20T16:17:12.308+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-20T16:17:12.332+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-20T21:42:32.267+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T21:42:32.276+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T21:42:32.277+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-20T21:42:32.290+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_currency_data> on 2025-07-19 00:00:00+00:00
+[2025-07-20T21:42:32.296+0000] {standard_task_runner.py:60} INFO - Started process 181 to run task
+[2025-07-20T21:42:32.299+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'ingest_currency_data', 'scheduled__2025-07-19T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmplhhsnz6x']
+[2025-07-20T21:42:32.303+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask ingest_currency_data
+[2025-07-20T21:42:32.351+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [running]> on host 76af8d252f3b
+[2025-07-20T21:42:32.427+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='ingest_currency_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-19T00:00:00+00:00'
+[2025-07-20T21:42:32.428+0000] {pipeline.py:44} INFO - Extracting data from: https://api.exchangerate-api.com/v4/latest/USD
+[2025-07-20T21:42:32.769+0000] {pipeline.py:35} INFO - Successfully connected to MongoDB at mongodb:27017
+[2025-07-20T21:42:32.790+0000] {pipeline.py:71} INFO - [Ingest] Ingested currency data. Rates for USD: 163 currencies.
+[2025-07-20T21:42:32.806+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-20T21:42:32.819+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=ingest_currency_data, execution_date=20250719T000000, start_date=20250720T214232, end_date=20250720T214232
+[2025-07-20T21:42:32.873+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-20T21:42:32.892+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-20T22:01:20.059+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T22:01:20.081+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T22:01:20.082+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-20T22:01:22.099+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_currency_data> on 2025-07-19 00:00:00+00:00
+[2025-07-20T22:01:22.108+0000] {standard_task_runner.py:60} INFO - Started process 189 to run task
+[2025-07-20T22:01:22.120+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'ingest_currency_data', 'scheduled__2025-07-19T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpv37v9wsb']
+[2025-07-20T22:01:22.126+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask ingest_currency_data
+[2025-07-20T22:01:22.223+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [running]> on host 2bd6de2a15ba
+[2025-07-20T22:01:22.348+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='ingest_currency_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-19T00:00:00+00:00'
+[2025-07-20T22:01:22.351+0000] {pipeline.py:44} INFO - Extracting data from: https://api.exchangerate-api.com/v4/latest/USD
+[2025-07-20T22:01:22.706+0000] {pipeline.py:35} INFO - Successfully connected to MongoDB at mongodb:27017
+[2025-07-20T22:01:22.717+0000] {pipeline.py:71} INFO - [Ingest] Ingested currency data. Rates for USD: 163 currencies.
+[2025-07-20T22:01:22.737+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-20T22:01:22.752+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=ingest_currency_data, execution_date=20250719T000000, start_date=20250720T220120, end_date=20250720T220122
+[2025-07-20T22:01:22.813+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-20T22:01:22.840+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-20T22:12:12.838+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T22:12:12.848+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T22:12:12.849+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-20T22:12:12.861+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_currency_data> on 2025-07-19 00:00:00+00:00
+[2025-07-20T22:12:12.867+0000] {standard_task_runner.py:60} INFO - Started process 196 to run task
+[2025-07-20T22:12:12.870+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'ingest_currency_data', 'scheduled__2025-07-19T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpxve7se8q']
+[2025-07-20T22:12:12.873+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask ingest_currency_data
+[2025-07-20T22:12:12.920+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [running]> on host f43ce628c5ca
+[2025-07-20T22:12:12.994+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='ingest_currency_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-19T00:00:00+00:00'
+[2025-07-20T22:12:12.996+0000] {pipeline.py:44} INFO - Extracting data from: https://api.exchangerate-api.com/v4/latest/USD
+[2025-07-20T22:12:13.369+0000] {pipeline.py:35} INFO - Successfully connected to MongoDB at mongodb:27017
+[2025-07-20T22:12:13.381+0000] {pipeline.py:71} INFO - [Ingest] Ingested currency data. Rates for USD: 163 currencies.
+[2025-07-20T22:12:13.400+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-20T22:12:13.416+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=ingest_currency_data, execution_date=20250719T000000, start_date=20250720T221212, end_date=20250720T221213
+[2025-07-20T22:12:13.443+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-20T22:12:13.471+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-20T22:38:47.369+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T22:38:47.379+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T22:38:47.379+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-20T22:38:47.393+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_currency_data> on 2025-07-19 00:00:00+00:00
+[2025-07-20T22:38:47.399+0000] {standard_task_runner.py:60} INFO - Started process 241 to run task
+[2025-07-20T22:38:47.402+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'ingest_currency_data', 'scheduled__2025-07-19T00:00:00+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmp7r8zlh05']
+[2025-07-20T22:38:47.405+0000] {standard_task_runner.py:88} INFO - Job 36: Subtask ingest_currency_data
+[2025-07-20T22:38:47.463+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.ingest_currency_data scheduled__2025-07-19T00:00:00+00:00 [running]> on host 32eccd868063
+[2025-07-20T22:38:47.565+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='ingest_currency_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-19T00:00:00+00:00'
+[2025-07-20T22:38:47.568+0000] {pipeline.py:44} INFO - Extracting data from: https://api.exchangerate-api.com/v4/latest/USD
+[2025-07-20T22:38:47.891+0000] {pipeline.py:35} INFO - Successfully connected to MongoDB at mongodb:27017
+[2025-07-20T22:38:47.900+0000] {pipeline.py:71} INFO - [Ingest] Ingested currency data. Rates for USD: 163 currencies.
+[2025-07-20T22:38:47.914+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-20T22:38:47.926+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=ingest_currency_data, execution_date=20250719T000000, start_date=20250720T223847, end_date=20250720T223847
+[2025-07-20T22:38:47.976+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-20T22:38:48.002+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

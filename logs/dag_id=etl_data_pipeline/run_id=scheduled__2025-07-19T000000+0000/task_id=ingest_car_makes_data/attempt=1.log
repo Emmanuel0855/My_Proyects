@@ -1,0 +1,64 @@
+[2025-07-20T21:42:32.266+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_car_makes_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T21:42:32.276+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_car_makes_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T21:42:32.277+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-20T21:42:32.290+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_car_makes_data> on 2025-07-19 00:00:00+00:00
+[2025-07-20T21:42:32.296+0000] {standard_task_runner.py:60} INFO - Started process 182 to run task
+[2025-07-20T21:42:32.302+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'ingest_car_makes_data', 'scheduled__2025-07-19T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpkvi5di1p']
+[2025-07-20T21:42:32.304+0000] {standard_task_runner.py:88} INFO - Job 5: Subtask ingest_car_makes_data
+[2025-07-20T21:42:32.351+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.ingest_car_makes_data scheduled__2025-07-19T00:00:00+00:00 [running]> on host 76af8d252f3b
+[2025-07-20T21:42:32.426+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='ingest_car_makes_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-19T00:00:00+00:00'
+[2025-07-20T21:42:32.428+0000] {pipeline.py:44} INFO - Extracting data from: https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json
+[2025-07-20T21:42:33.157+0000] {pipeline.py:35} INFO - Successfully connected to MongoDB at mongodb:27017
+[2025-07-20T21:42:33.177+0000] {pipeline.py:119} INFO - [Ingest] Ingested 192 car makes.
+[2025-07-20T21:42:33.188+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-20T21:42:33.199+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=ingest_car_makes_data, execution_date=20250719T000000, start_date=20250720T214232, end_date=20250720T214233
+[2025-07-20T21:42:33.233+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-20T21:42:33.257+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-07-20T22:01:20.057+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_car_makes_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T22:01:20.079+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_car_makes_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T22:01:20.080+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-20T22:01:22.099+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_car_makes_data> on 2025-07-19 00:00:00+00:00
+[2025-07-20T22:01:22.108+0000] {standard_task_runner.py:60} INFO - Started process 191 to run task
+[2025-07-20T22:01:22.115+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'ingest_car_makes_data', 'scheduled__2025-07-19T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpvp55f7sv']
+[2025-07-20T22:01:22.122+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask ingest_car_makes_data
+[2025-07-20T22:01:22.223+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.ingest_car_makes_data scheduled__2025-07-19T00:00:00+00:00 [running]> on host 2bd6de2a15ba
+[2025-07-20T22:01:22.355+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='ingest_car_makes_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-19T00:00:00+00:00'
+[2025-07-20T22:01:22.357+0000] {pipeline.py:44} INFO - Extracting data from: https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json
+[2025-07-20T22:01:23.219+0000] {pipeline.py:35} INFO - Successfully connected to MongoDB at mongodb:27017
+[2025-07-20T22:01:23.224+0000] {pipeline.py:119} INFO - [Ingest] Ingested 192 car makes.
+[2025-07-20T22:01:23.246+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-20T22:01:23.266+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=ingest_car_makes_data, execution_date=20250719T000000, start_date=20250720T220120, end_date=20250720T220123
+[2025-07-20T22:01:23.331+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-20T22:01:23.378+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-20T22:12:12.838+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_car_makes_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T22:12:12.848+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_car_makes_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T22:12:12.849+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-20T22:12:12.861+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_car_makes_data> on 2025-07-19 00:00:00+00:00
+[2025-07-20T22:12:12.867+0000] {standard_task_runner.py:60} INFO - Started process 197 to run task
+[2025-07-20T22:12:12.870+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'ingest_car_makes_data', 'scheduled__2025-07-19T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpxkxedzje']
+[2025-07-20T22:12:12.873+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask ingest_car_makes_data
+[2025-07-20T22:12:12.920+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.ingest_car_makes_data scheduled__2025-07-19T00:00:00+00:00 [running]> on host f43ce628c5ca
+[2025-07-20T22:12:12.993+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='ingest_car_makes_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-19T00:00:00+00:00'
+[2025-07-20T22:12:12.995+0000] {pipeline.py:44} INFO - Extracting data from: https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json
+[2025-07-20T22:12:13.794+0000] {pipeline.py:35} INFO - Successfully connected to MongoDB at mongodb:27017
+[2025-07-20T22:12:13.805+0000] {pipeline.py:119} INFO - [Ingest] Ingested 192 car makes.
+[2025-07-20T22:12:13.822+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-20T22:12:13.834+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=ingest_car_makes_data, execution_date=20250719T000000, start_date=20250720T221212, end_date=20250720T221213
+[2025-07-20T22:12:13.884+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-20T22:12:13.912+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-07-20T22:38:47.369+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_car_makes_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T22:38:47.379+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_car_makes_data scheduled__2025-07-19T00:00:00+00:00 [queued]>
+[2025-07-20T22:38:47.379+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-20T22:38:47.393+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_car_makes_data> on 2025-07-19 00:00:00+00:00
+[2025-07-20T22:38:47.399+0000] {standard_task_runner.py:60} INFO - Started process 242 to run task
+[2025-07-20T22:38:47.406+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'ingest_car_makes_data', 'scheduled__2025-07-19T00:00:00+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmps6nhoshh']
+[2025-07-20T22:38:47.408+0000] {standard_task_runner.py:88} INFO - Job 35: Subtask ingest_car_makes_data
+[2025-07-20T22:38:47.465+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.ingest_car_makes_data scheduled__2025-07-19T00:00:00+00:00 [running]> on host 32eccd868063
+[2025-07-20T22:38:47.567+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='ingest_car_makes_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-19T00:00:00+00:00'
+[2025-07-20T22:38:47.569+0000] {pipeline.py:44} INFO - Extracting data from: https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json
+[2025-07-20T22:38:48.208+0000] {pipeline.py:35} INFO - Successfully connected to MongoDB at mongodb:27017
+[2025-07-20T22:38:48.216+0000] {pipeline.py:119} INFO - [Ingest] Ingested 192 car makes.
+[2025-07-20T22:38:48.229+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-20T22:38:48.239+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=ingest_car_makes_data, execution_date=20250719T000000, start_date=20250720T223847, end_date=20250720T223848
+[2025-07-20T22:38:48.256+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-20T22:38:48.280+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

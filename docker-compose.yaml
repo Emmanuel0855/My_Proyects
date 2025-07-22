@@ -1,0 +1,130 @@
+version: '3.8'
+
+services:
+  # Servicio de MongoDB
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_container
+    ports:
+      - "27017:27017" # Expose MongoDB port to host
+    volumes:
+      - ./mongo_data:/data/db # Persist MongoDB data
+    networks:
+      - my_airflow_network # Connect to the Airflow network
+
+  # Servicio de PostgreSQL para Airflow Metadata
+  postgres:
+    image: postgres:13
+    container_name: postgres_airflow
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persist PostgreSQL data
+    networks:
+      - my_airflow_network
+
+  # Servicio para inicializar la base de datos de Airflow
+  # Este servicio debe ejecutarse ANTES del webserver y scheduler
+  airflow_init:
+    build: . # Uses the same Dockerfile as webserver/scheduler
+    container_name: airflow_init_db
+    depends_on:
+      - postgres # Must wait for postgres to be ready
+      - mongodb # Also depends on mongodb for environment variables consistency
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres_airflow/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+      MONGO_HOST: mongodb
+      MONGO_PORT: 27017
+      MONGO_DB_NAME: ETLProjectDB
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+    # Corrected command to initialize the Airflow database and create a user
+    command: >
+      bash -c "
+      sleep 10 &&
+      airflow db migrate &&
+      airflow users create --username airflow --firstname Airflow --lastname User --role Admin --email airflow@example.com --password airflow
+      "
+    networks:
+      - my_airflow_network
+    restart: "no" # This service should not restart after successful initialization
+
+  # Servicio del Webserver de Airflow
+  webserver:
+    build: . # Assumes you have a Dockerfile in the current directory for Airflow components
+    container_name: airflow_webserver
+    depends_on:
+      - postgres
+      - mongodb
+      - airflow_init # Webserver must wait for DB to be initialized
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres_airflow/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false' # Set to 'true' if you want Airflow's example DAGs
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true' # DAGs are paused by default
+      MONGO_HOST: mongodb # Pass MongoDB service name to Airflow tasks
+      MONGO_PORT: 27017
+      MONGO_DB_NAME: ETLProjectDB # Pass DB name to Airflow tasks
+    volumes:
+      - ./dags:/opt/airflow/dags # Mount your DAGs folder
+      - ./logs:/opt/airflow/logs # Mount logs for debugging
+      - ./plugins:/opt/airflow/plugins # Mount plugins if you have any
+    ports:
+      - "8080:8080" # Expose Airflow UI port
+    command: webserver # Command to start the Airflow webserver
+    networks:
+      - my_airflow_network
+
+  # Servicio del Scheduler de Airflow
+  scheduler:
+    build: . # Assumes Dockerfile
+    container_name: airflow_scheduler
+    depends_on:
+      - postgres
+      - mongodb
+      - airflow_init # Scheduler must wait for DB to be initialized
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres_airflow/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+      MONGO_HOST: mongodb # Pass MongoDB service name to scheduler
+      MONGO_PORT: 27017
+      MONGO_DB_NAME: ETLProjectDB # Pass DB name
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+    command: scheduler # Command to start the Airflow scheduler
+    networks:
+      - my_airflow_network
+
+  # Servicio del Dashboard de Streamlit
+  streamlit:
+    build: ./streamlit_app # Build from the streamlit_app directory
+    container_name: streamlit_dashboard
+    ports:
+      - "8501:8501" # Expose Streamlit dashboard port
+    depends_on:
+      - mongodb # Streamlit app needs to connect to MongoDB to fetch data
+    environment:
+      MONGO_HOST: mongodb # Pass MongoDB service name to Streamlit app
+      MONGO_PORT: 27017
+      MONGO_DB_NAME: ETLProjectDB # Ensure this matches the DB name in pipeline.py
+    networks:
+      - my_airflow_network
+
+networks:
+  my_airflow_network:
+    driver: bridge # Define a bridge network for internal communication
+
+volumes:
+  postgres_data: # Define named volume for PostgreSQL data persistence
+  mongo_data: # Define named volume for MongoDB data persistence

@@ -1,0 +1,16 @@
+[2025-07-22T15:35:27.626+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_car_makes_data manual__2025-07-22T15:35:26.316728+00:00 [queued]>
+[2025-07-22T15:35:27.639+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_data_pipeline.ingest_car_makes_data manual__2025-07-22T15:35:26.316728+00:00 [queued]>
+[2025-07-22T15:35:27.639+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-22T15:35:27.656+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_car_makes_data> on 2025-07-22 15:35:26.316728+00:00
+[2025-07-22T15:35:27.664+0000] {standard_task_runner.py:60} INFO - Started process 283 to run task
+[2025-07-22T15:35:27.671+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_data_pipeline', 'ingest_car_makes_data', 'manual__2025-07-22T15:35:26.316728+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpwul2jd_s']
+[2025-07-22T15:35:27.674+0000] {standard_task_runner.py:88} INFO - Job 17: Subtask ingest_car_makes_data
+[2025-07-22T15:35:27.730+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_data_pipeline.ingest_car_makes_data manual__2025-07-22T15:35:26.316728+00:00 [running]> on host ca8555d60fc9
+[2025-07-22T15:35:27.839+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_data_pipeline' AIRFLOW_CTX_TASK_ID='ingest_car_makes_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-22T15:35:26.316728+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-22T15:35:26.316728+00:00'
+[2025-07-22T15:35:27.841+0000] {pipeline.py:45} INFO - Attempting to extract data from: https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json
+[2025-07-22T15:35:31.849+0000] {pipeline.py:52} ERROR - Error during API extraction from https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json: HTTPSConnectionPool(host='vpic.nhtsa.dot.gov', port=443): Max retries exceeded with url: /api/vehicles/GetMakesForVehicleType/car?format=json (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fdba91b2c90>: Failed to resolve 'vpic.nhtsa.dot.gov' ([Errno -5] No address associated with hostname)"))
+[2025-07-22T15:35:31.849+0000] {pipeline.py:113} WARNING - No car makes data extracted. Skipping ingestion.
+[2025-07-22T15:35:31.860+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-22T15:35:31.869+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_data_pipeline, task_id=ingest_car_makes_data, execution_date=20250722T153526, start_date=20250722T153527, end_date=20250722T153531
+[2025-07-22T15:35:31.896+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-22T15:35:31.931+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
